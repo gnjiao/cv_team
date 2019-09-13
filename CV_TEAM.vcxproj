@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>.\Library_x64\ZbarLib_x64\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>.\Library_x86\ZbarLib_x86\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>.\Library_x64\ZbarLib_x64\include;.\AuxiliaryFile\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>.\Library_x86\ZbarLib_x86\include;.\AuxiliaryFile\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>.\Library_x64\ZbarLib_x64;.\Library_x64\ModbusLib_x64;.\Library_x64\CameraLib_x64\Hik;.\Library_x64\CameraLib_x64\Basler;.\Library_x64\OpenCVlib_x64;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;opencv_world330.lib;opencv_world330d.lib;modbus.lib;Qt5Testd.lib;Qt5SerialPortd.lib;Qt5Networkd.lib;libzbar64-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;EIGEN_DONT_ALIGN_STATICALLY;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>.\Library_x86\ZbarLib_x86;.\Library_x86\OpenCVlib_x86;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;opencv_world330.lib;opencv_world330d.lib;Qt5Testd.lib;Qt5SerialPortd.lib;Qt5Networkd.lib;libzbar-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;EIGEN_DONT_ALIGN_STATICALLY;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>.\Library_x64\ZbarLib_x64;.\Library_x64\OpenCVlib_x64;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;opencv_world330.lib;opencv_world330d.lib;Qt5Test.lib;Qt5SerialPort.lib;Qt5Network.lib;libzbar64-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;EIGEN_DONT_ALIGN_STATICALLY;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>C:\Users\Administrator\Desktop\VsPro\CV_TEAM\CV_TEAM\Library_x86\ZbarLib_x86;.\Library_x86\OpenCVlib_x86;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;opencv_world330d.lib;opencv_world330.lib;Qt5Test.lib;Qt5SerialPort.lib;Qt5Network.lib;libzbar-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;EIGEN_DONT_ALIGN_STATICALLY;QT_TESTLIB_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <QtRcc Include="CV_TEAM.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Acquisition\AcquireImageOperator.cpp" />
+    <ClCompile Include="Acquisition\AcquireImageWidget.cpp" />
+    <ClCompile Include="Acquisition\Acquisition.cpp" />
+    <ClCompile Include="AuxiliaryFile\Log.cpp" />
+    <ClCompile Include="AuxiliaryFile\TitleBar.cpp" />
+    <ClCompile Include="Camera\CameraWidget.cpp" />
+    <ClCompile Include="Communication\CommunicationWidget.cpp" />
+    <ClCompile Include="Communication\CustomTabWidget.cpp" />
+    <ClCompile Include="Communication\SerialPort\SPIODevice.cpp" />
+    <ClCompile Include="Communication\SerialPort\SerialPortIODevice.cpp" />
+    <ClCompile Include="Communication\SerialPort\SerialPortWidget.cpp" />
+    <ClCompile Include="Communication\TcpServer\TcpIODevice.cpp" />
+    <ClCompile Include="Communication\TcpServer\TcpServerIODevice.cpp" />
+    <ClCompile Include="Communication\TcpServer\TcpServerWidget.cpp" />
+    <ClCompile Include="CV_TEAM.cpp" />
+    <ClCompile Include="DataModel\BaseOperator.cpp" />
+    <ClCompile Include="DataModel\BaseWidget.cpp" />
+    <ClCompile Include="DataModel\ExtendedGroupBox.cpp" />
+    <ClCompile Include="DataModel\FrameView.cpp" />
+    <ClCompile Include="DataModel\InputBox.cpp" />
+    <ClCompile Include="DataModel\InputData.cpp" />
+    <ClCompile Include="DataModel\ToolDataMap.cpp" />
+    <ClCompile Include="GraphicsItem\CircleSetItem.cpp" />
+    <ClCompile Include="GraphicsItem\EraserItem.cpp" />
+    <ClCompile Include="GraphicsItem\FindCircleItem.cpp" />
+    <ClCompile Include="GraphicsItem\findLineItem.cpp" />
+    <ClCompile Include="GraphicsItem\FrontSightItem.cpp" />
+    <ClCompile Include="GraphicsItem\LineSetItem.cpp" />
+    <ClCompile Include="GraphicsItem\PointSetItem.cpp" />
+    <ClCompile Include="GraphicsItem\ROIItem.cpp" />
+    <ClCompile Include="GraphicsItem\SearchTool.cpp" />
+    <ClCompile Include="GraphicsItem\TextItem.cpp" />
+    <ClCompile Include="Inspection\DisplayWidget.cpp">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+    </ClCompile>
+    <ClCompile Include="Inspection\DragTreeWidget.cpp" />
+    <ClCompile Include="Inspection\FileWidget.cpp" />
+    <ClCompile Include="Inspection\Inspection.cpp" />
+    <ClCompile Include="Inspection\InspectionDialog.cpp" />
+    <ClCompile Include="Inspection\OperatorManager.cpp" />
+    <ClCompile Include="Inspection\ToolBlock.cpp" />
+    <ClCompile Include="Inspection\ToolBlockManager.cpp" />
+    <ClCompile Include="Inspection\ToolBlockWidget.cpp" />
+    <ClCompile Include="Inspection\ToolBoxWidget.cpp" />
+    <ClCompile Include="Location\Blob.cpp" />
+    <ClCompile Include="Location\BlobOperator.cpp" />
+    <ClCompile Include="Location\BlobWidget.cpp" />
+    <ClCompile Include="Location\Calipers.cpp" />
+    <ClCompile Include="Location\FindCircle.cpp" />
+    <ClCompile Include="Location\FindCircleOperator.cpp" />
+    <ClCompile Include="Location\FindCircleWidget.cpp" />
+    <ClCompile Include="Location\FindLine.cpp" />
+    <ClCompile Include="Location\FindLineOperator.cpp" />
+    <ClCompile Include="Location\FindLineWidget.cpp" />
+    <ClCompile Include="Location\ShapeMatchAlgorithm.cpp" />
+    <ClCompile Include="Location\ShapeMatchOperator.cpp" />
+    <ClCompile Include="Location\ShapeMatchWidget.cpp" />
+    <ClCompile Include="LTwindow\LT.cpp" />
+    <QtMoc Include="LTwindow\LTbar.cpp">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <ClCompile Include="LTwindow\LTbutton.cpp" />
+    <ClCompile Include="LTwindow\Cursor.cpp" />
+    <QtMoc Include="LTwindow\quickaccessbar.cpp">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\%(Filename).moc</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <ClCompile Include="LTwindow\ScreenHelper.cpp" />
+    <ClCompile Include="LTwindow\LTwindow.cpp" />
+    <ClCompile Include="LTwindow\LT_p.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PreTreatment\Enhancement.cpp" />
+    <ClCompile Include="PreTreatment\EnhancementOperator.cpp" />
+    <ClCompile Include="PreTreatment\EnhancementWidget.cpp" />
+    <ClCompile Include="PreTreatment\Morphology.cpp" />
+    <ClCompile Include="PreTreatment\MorphologyOperator.cpp" />
+    <ClCompile Include="PreTreatment\MorphologyWidget.cpp" />
+    <ClCompile Include="PreTreatment\Smooth.cpp" />
+    <ClCompile Include="PreTreatment\SmoothOperator.cpp" />
+    <ClCompile Include="PreTreatment\SmoothWidget.cpp" />
+    <ClCompile Include="PreTreatment\Threshold.cpp" />
+    <ClCompile Include="PreTreatment\ThresholdOperator.cpp" />
+    <ClCompile Include="PreTreatment\ThresholdWidget.cpp" />
+    <ClCompile Include="Recognition\Barcode.cpp" />
+    <ClCompile Include="Recognition\BarcodeOperator.cpp" />
+    <ClCompile Include="Recognition\BarcodeWidget.cpp" />
+    <ClCompile Include="Task\RTStatusWidget.cpp" />
+    <ClCompile Include="Task\TaskDockWidget.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Inspection\DisplayWidget.h" />
+    <QtMoc Include="Camera\CameraWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Communication\CommunicationWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <ClInclude Include="Communication\CustomTabWidget.h" />
+    <QtMoc Include="Communication\SerialPort\SerialPortIODevice.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Communication\SerialPort\SerialPortWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Communication\SerialPort\SPIODevice.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Communication\TcpServer\TcpIODevice.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Communication\TcpServer\TcpServerIODevice.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Communication\TcpServer\TcpServerWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
+    <ClInclude Include="GraphicsItem\TextItem.h" />
+    <ClInclude Include="LTwindow\LT.h" />
+    <QtMoc Include="LTwindow\LTbar.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <QtMoc Include="LTwindow\LTbutton.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <ClInclude Include="LTwindow\Cursor.h" />
+    <QtMoc Include="LTwindow\quickaccessbar.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <ClInclude Include="LTwindow\ScreenHelper.h" />
+    <QtMoc Include="LTwindow\LTwindow.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
+    </QtMoc>
+    <ClInclude Include="LTwindow\LT_p.h" />
+    <ClInclude Include="Recognition\Barcode.h" />
+    <ClInclude Include="Recognition\BarcodeOperator.h" />
+    <ClInclude Include="Recognition\BarcodeWidget.h" />
+    <ClInclude Include="resource.h" />
+    <QtMoc Include="Task\TaskDockWidget.h" />
+    <QtMoc Include="Task\RTStatusWidget.h" />
+    <QtMoc Include="CV_TEAM.h" />
+    <ClInclude Include="Acquisition\AcquireImageOperator.h" />
+    <QtMoc Include="Acquisition\AcquireImageWidget.h" />
+    <ClInclude Include="Acquisition\Acquisition.h" />
+    <QtMoc Include="AuxiliaryFile\TitleBar.h" />
+    <ClInclude Include="AuxiliaryFile\Log.h" />
+    <ClInclude Include="AuxiliaryFile\ThreadSafeQueue.h" />
+    <ClInclude Include="DataModel\BaseNode.h" />
+    <ClInclude Include="DataModel\BaseOperator.h" />
+    <QtMoc Include="DataModel\BaseWidget.h" />
+    <QtMoc Include="DataModel\ExtendedGroupBox.h" />
+    <QtMoc Include="DataModel\FrameView.h" />
+    <QtMoc Include="DataModel\InputBox.h" />
+    <ClInclude Include="DataModel\InputData.h" />
+    <ClInclude Include="DataModel\ToolData.h" />
+    <ClInclude Include="DataModel\ToolDataMap.h" />
+    <ClInclude Include="geo\AffineTrans.h" />
+    <ClInclude Include="Geo\Angle.h" />
+    <ClInclude Include="Geo\Circle2D.h" />
+    <ClInclude Include="Geo\Line2D.h" />
+    <ClInclude Include="Geo\Point2D.h" />
+    <ClInclude Include="Geo\RotRect2D.h" />
+    <QtMoc Include="Inspection\DragTreeWidget.h" />
+    <ClInclude Include="GraphicsItem\CircleSetItem.h" />
+    <QtMoc Include="GraphicsItem\EraserItem.h" />
+    <ClInclude Include="GraphicsItem\FindCircleItem.h" />
+    <ClInclude Include="GraphicsItem\findLineItem.h" />
+    <ClInclude Include="GraphicsItem\FrontSightItem.h" />
+    <ClInclude Include="GraphicsItem\LineSetItem.h" />
+    <ClInclude Include="GraphicsItem\PointSetItem.h" />
+    <ClInclude Include="GraphicsItem\ROIItem.h" />
+    <ClInclude Include="GraphicsItem\SearchTool.h" />
+    <ClInclude Include="Inspection\EntityManager.h" />
+    <QtMoc Include="Inspection\FileWidget.h" />
+    <ClInclude Include="Inspection\Inspection.h" />
+    <QtMoc Include="Inspection\InspectionDialog.h" />
+    <ClInclude Include="Inspection\OperatorManager.h" />
+    <ClInclude Include="Inspection\ToolBlock.h" />
+    <ClInclude Include="Inspection\ToolBlockManager.h" />
+    <QtMoc Include="Inspection\ToolBlockWidget.h" />
+    <QtMoc Include="Inspection\ToolBoxWidget.h" />
+    <ClInclude Include="Location\Blob.h" />
+    <ClInclude Include="Location\BlobOperator.h" />
+    <QtMoc Include="Location\BlobWidget.h" />
+    <ClInclude Include="Location\Calipers.h" />
+    <ClInclude Include="Location\FindCircle.h" />
+    <ClInclude Include="Location\FindCircleOperator.h" />
+    <QtMoc Include="Location\FindCircleWidget.h" />
+    <ClInclude Include="Location\FindLine.h" />
+    <ClInclude Include="Location\FindLineOperator.h" />
+    <QtMoc Include="Location\FindLineWidget.h" />
+    <ClInclude Include="Location\ShapeMatchAlgorithm.h" />
+    <ClInclude Include="Location\ShapeMatchOperator.h" />
+    <ClInclude Include="Location\ShapeMatchParam.h" />
+    <QtMoc Include="Location\ShapeMatchWidget.h" />
+    <ClInclude Include="PreTreatment\EnhanceMent.h" />
+    <ClInclude Include="PreTreatment\EnhancementOperator.h" />
+    <QtMoc Include="PreTreatment\EnhancementWidget.h" />
+    <ClInclude Include="PreTreatment\Morphology.h" />
+    <ClInclude Include="PreTreatment\MorphologyOperator.h" />
+    <ClInclude Include="PreTreatment\MorphologyParam.h" />
+    <QtMoc Include="PreTreatment\MorphologyWidget.h" />
+    <ClInclude Include="PreTreatment\Smooth.h" />
+    <ClInclude Include="PreTreatment\SmoothOperator.h" />
+    <ClInclude Include="PreTreatment\SmoothParam.h" />
+    <QtMoc Include="PreTreatment\SmoothWidget.h" />
+    <ClInclude Include="PreTreatment\Threshold.h" />
+    <ClInclude Include="PreTreatment\ThresholdOperator.h" />
+    <ClInclude Include="PreTreatment\ThresholdParam.h" />
+    <QtMoc Include="PreTreatment\ThresholdWidget.h" />
+    <ClInclude Include="Rect2D.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CV_TEAM.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_Win32="msvc2015" Qt5Version_x0020_x64="msvc2015_64" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

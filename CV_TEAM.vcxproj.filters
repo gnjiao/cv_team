@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="geo">
+      <UniqueIdentifier>{d9c15083-b6bc-49d9-907d-79bbb617a3db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PreTreatment">
+      <UniqueIdentifier>{57aef3a8-4c6d-45f8-9bc7-221fab4a318c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Task">
+      <UniqueIdentifier>{e8ad3510-a5fe-467b-a93b-89466d2bfb3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inspection">
+      <UniqueIdentifier>{ceedb358-37a5-4d1d-a0d0-e311858a78f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Location">
+      <UniqueIdentifier>{1fb8d184-4201-4714-b9d2-b348fc6c97f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsItem">
+      <UniqueIdentifier>{66888477-fda4-4612-9f7e-3489173ab71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Acquisition">
+      <UniqueIdentifier>{756b501a-21d6-4253-a2e7-622aaf178ce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataModel">
+      <UniqueIdentifier>{f3c717bf-3319-490e-8276-c50a0cfa0d6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{ee145e07-fad8-41fd-bb1f-c6fcb869c5f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AuxiliaryFile">
+      <UniqueIdentifier>{aa08367c-f1b3-445d-8b4c-91367236cb43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Communication">
+      <UniqueIdentifier>{c764064f-7f3d-45e6-8084-70658374ce3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Mesurement">
+      <UniqueIdentifier>{f979251d-73a9-4db3-a045-a140a361a253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Recognetion">
+      <UniqueIdentifier>{ae55d55f-bb3c-4949-8f7b-b786199f5f90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LTwindow">
+      <UniqueIdentifier>{702fb4d5-c4fd-43f6-b74f-812e46cea410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Communication\TcpServer">
+      <UniqueIdentifier>{5376e5c5-1832-459d-af89-c43e1db32b47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Communication\SerialPort">
+      <UniqueIdentifier>{17d0fa60-b952-473e-a352-39c1698a6dc4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="CV_TEAM.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CV_TEAM.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\DragTreeWidget.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\Inspection.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\InspectionDialog.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\OperatorManager.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\ToolBlock.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\ToolBlockManager.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\ToolBlockWidget.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\ToolBoxWidget.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\Blob.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\BlobOperator.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\BlobWidget.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\Calipers.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\FindCircle.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\FindCircleOperator.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\FindCircleWidget.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\FindLine.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\FindLineOperator.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\FindLineWidget.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\ShapeMatchAlgorithm.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\ShapeMatchOperator.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\ShapeMatchWidget.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\CircleSetItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\EraserItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\findLineItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\FrontSightItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\LineSetItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\PointSetItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\ROIItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\SearchTool.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="Acquisition\AcquireImageOperator.cpp">
+      <Filter>Acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="Acquisition\AcquireImageWidget.cpp">
+      <Filter>Acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="Acquisition\Acquisition.cpp">
+      <Filter>Acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\BaseOperator.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\BaseWidget.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\ExtendedGroupBox.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\FrameView.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\InputBox.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\InputData.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\ToolDataMap.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\RTStatusWidget.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\TaskDockWidget.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\FindCircleItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\Enhancement.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\EnhancementOperator.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\EnhancementWidget.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\FileWidget.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="AuxiliaryFile\TitleBar.cpp">
+      <Filter>AuxiliaryFile</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\Morphology.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\MorphologyOperator.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\MorphologyWidget.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\Smooth.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\SmoothOperator.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\SmoothWidget.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\Threshold.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\ThresholdOperator.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="PreTreatment\ThresholdWidget.cpp">
+      <Filter>PreTreatment</Filter>
+    </ClCompile>
+    <ClCompile Include="AuxiliaryFile\Log.cpp">
+      <Filter>AuxiliaryFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection\DisplayWidget.cpp">
+      <Filter>Inspection</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\CameraWidget.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="LTwindow\LT.cpp">
+      <Filter>LTwindow</Filter>
+    </ClCompile>
+    <ClCompile Include="LTwindow\LTbutton.cpp">
+      <Filter>LTwindow</Filter>
+    </ClCompile>
+    <ClCompile Include="LTwindow\LTwindow.cpp">
+      <Filter>LTwindow</Filter>
+    </ClCompile>
+    <ClCompile Include="LTwindow\Cursor.cpp">
+      <Filter>LTwindow</Filter>
+    </ClCompile>
+    <ClCompile Include="LTwindow\LT_p.cpp">
+      <Filter>LTwindow</Filter>
+    </ClCompile>
+    <ClCompile Include="LTwindow\ScreenHelper.cpp">
+      <Filter>LTwindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\CustomTabWidget.cpp">
+      <Filter>Communication</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\CommunicationWidget.cpp">
+      <Filter>Communication</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\SerialPort\SerialPortIODevice.cpp">
+      <Filter>Communication\SerialPort</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\SerialPort\SerialPortWidget.cpp">
+      <Filter>Communication\SerialPort</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\SerialPort\SPIODevice.cpp">
+      <Filter>Communication\SerialPort</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\TcpServer\TcpServerIODevice.cpp">
+      <Filter>Communication\TcpServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\TcpServer\TcpServerWidget.cpp">
+      <Filter>Communication\TcpServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\TcpServer\TcpIODevice.cpp">
+      <Filter>Communication\TcpServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Recognition\Barcode.cpp">
+      <Filter>Recognetion</Filter>
+    </ClCompile>
+    <ClCompile Include="Recognition\BarcodeOperator.cpp">
+      <Filter>Recognetion</Filter>
+    </ClCompile>
+    <ClCompile Include="Recognition\BarcodeWidget.cpp">
+      <Filter>Recognetion</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsItem\TextItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Geo\Circle2D.h">
+      <Filter>geo</Filter>
+    </ClInclude>
+    <ClInclude Include="Geo\Line2D.h">
+      <Filter>geo</Filter>
+    </ClInclude>
+    <ClInclude Include="Geo\Point2D.h">
+      <Filter>geo</Filter>
+    </ClInclude>
+    <ClInclude Include="Geo\RotRect2D.h">
+      <Filter>geo</Filter>
+    </ClInclude>
+    <ClInclude Include="Geo\Angle.h">
+      <Filter>geo</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect2D.h">
+      <Filter>geo</Filter>
+    </ClInclude>
+    <ClInclude Include="geo\AffineTrans.h">
+      <Filter>geo</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspection\EntityManager.h">
+      <Filter>Inspection</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspection\Inspection.h">
+      <Filter>Inspection</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspection\OperatorManager.h">
+      <Filter>Inspection</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspection\ToolBlock.h">
+      <Filter>Inspection</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspection\ToolBlockManager.h">
+      <Filter>Inspection</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\Blob.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\BlobOperator.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\Calipers.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\FindCircle.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\FindCircleOperator.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\FindLine.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\FindLineOperator.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\ShapeMatchAlgorithm.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\ShapeMatchOperator.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\ShapeMatchParam.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\CircleSetItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\findLineItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\FrontSightItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\LineSetItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\PointSetItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\ROIItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\SearchTool.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="Acquisition\AcquireImageOperator.h">
+      <Filter>Acquisition</Filter>
+    </ClInclude>
+    <ClInclude Include="Acquisition\Acquisition.h">
+      <Filter>Acquisition</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\BaseNode.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\BaseOperator.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\InputData.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\ToolData.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\ToolDataMap.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\FindCircleItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\EnhanceMent.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\EnhancementOperator.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\Morphology.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\MorphologyOperator.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\MorphologyParam.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\Smooth.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\SmoothOperator.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\SmoothParam.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\Threshold.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\ThresholdOperator.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="PreTreatment\ThresholdParam.h">
+      <Filter>PreTreatment</Filter>
+    </ClInclude>
+    <ClInclude Include="AuxiliaryFile\Log.h">
+      <Filter>AuxiliaryFile</Filter>
+    </ClInclude>
+    <ClInclude Include="AuxiliaryFile\ThreadSafeQueue.h">
+      <Filter>AuxiliaryFile</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LTwindow\LT.h">
+      <Filter>LTwindow</Filter>
+    </ClInclude>
+    <ClInclude Include="LTwindow\Cursor.h">
+      <Filter>LTwindow</Filter>
+    </ClInclude>
+    <ClInclude Include="LTwindow\LT_p.h">
+      <Filter>LTwindow</Filter>
+    </ClInclude>
+    <ClInclude Include="LTwindow\ScreenHelper.h">
+      <Filter>LTwindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Communication\CustomTabWidget.h">
+      <Filter>Communication</Filter>
+    </ClInclude>
+    <ClInclude Include="Recognition\Barcode.h">
+      <Filter>Recognetion</Filter>
+    </ClInclude>
+    <ClInclude Include="Recognition\BarcodeOperator.h">
+      <Filter>Recognetion</Filter>
+    </ClInclude>
+    <ClInclude Include="Recognition\BarcodeWidget.h">
+      <Filter>Recognetion</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\TextItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CV_TEAM.h">
+      <Filter>Main</Filter>
+    </QtMoc>
+    <QtMoc Include="Inspection\DragTreeWidget.h">
+      <Filter>Inspection</Filter>
+    </QtMoc>
+    <QtMoc Include="Inspection\InspectionDialog.h">
+      <Filter>Inspection</Filter>
+    </QtMoc>
+    <QtMoc Include="Inspection\ToolBlockWidget.h">
+      <Filter>Inspection</Filter>
+    </QtMoc>
+    <QtMoc Include="Inspection\ToolBoxWidget.h">
+      <Filter>Inspection</Filter>
+    </QtMoc>
+    <QtMoc Include="Location\BlobWidget.h">
+      <Filter>Location</Filter>
+    </QtMoc>
+    <QtMoc Include="Location\FindCircleWidget.h">
+      <Filter>Location</Filter>
+    </QtMoc>
+    <QtMoc Include="Location\FindLineWidget.h">
+      <Filter>Location</Filter>
+    </QtMoc>
+    <QtMoc Include="Location\ShapeMatchWidget.h">
+      <Filter>Location</Filter>
+    </QtMoc>
+    <QtMoc Include="GraphicsItem\EraserItem.h">
+      <Filter>GraphicsItem</Filter>
+    </QtMoc>
+    <QtMoc Include="Acquisition\AcquireImageWidget.h">
+      <Filter>Acquisition</Filter>
+    </QtMoc>
+    <QtMoc Include="DataModel\BaseWidget.h">
+      <Filter>DataModel</Filter>
+    </QtMoc>
+    <QtMoc Include="DataModel\ExtendedGroupBox.h">
+      <Filter>DataModel</Filter>
+    </QtMoc>
+    <QtMoc Include="DataModel\FrameView.h">
+      <Filter>DataModel</Filter>
+    </QtMoc>
+    <QtMoc Include="DataModel\InputBox.h">
+      <Filter>DataModel</Filter>
+    </QtMoc>
+    <QtMoc Include="Task\RTStatusWidget.h">
+      <Filter>Task</Filter>
+    </QtMoc>
+    <QtMoc Include="Task\TaskDockWidget.h">
+      <Filter>Task</Filter>
+    </QtMoc>
+    <QtMoc Include="PreTreatment\EnhancementWidget.h">
+      <Filter>PreTreatment</Filter>
+    </QtMoc>
+    <QtMoc Include="Inspection\FileWidget.h">
+      <Filter>Inspection</Filter>
+    </QtMoc>
+    <QtMoc Include="AuxiliaryFile\TitleBar.h">
+      <Filter>AuxiliaryFile</Filter>
+    </QtMoc>
+    <QtMoc Include="PreTreatment\MorphologyWidget.h">
+      <Filter>PreTreatment</Filter>
+    </QtMoc>
+    <QtMoc Include="PreTreatment\SmoothWidget.h">
+      <Filter>PreTreatment</Filter>
+    </QtMoc>
+    <QtMoc Include="PreTreatment\ThresholdWidget.h">
+      <Filter>PreTreatment</Filter>
+    </QtMoc>
+    <QtMoc Include="Inspection\DisplayWidget.h">
+      <Filter>Inspection</Filter>
+    </QtMoc>
+    <QtMoc Include="LTwindow\LTbar.h">
+      <Filter>LTwindow</Filter>
+    </QtMoc>
+    <QtMoc Include="LTwindow\LTbar.cpp">
+      <Filter>LTwindow</Filter>
+    </QtMoc>
+    <QtMoc Include="LTwindow\LTbutton.h">
+      <Filter>LTwindow</Filter>
+    </QtMoc>
+    <QtMoc Include="LTwindow\LTwindow.h">
+      <Filter>LTwindow</Filter>
+    </QtMoc>
+    <QtMoc Include="LTwindow\quickaccessbar.h">
+      <Filter>LTwindow</Filter>
+    </QtMoc>
+    <QtMoc Include="LTwindow\quickaccessbar.cpp">
+      <Filter>LTwindow</Filter>
+    </QtMoc>
+    <QtMoc Include="Camera\CameraWidget.h">
+      <Filter>Camera</Filter>
+    </QtMoc>
+    <QtMoc Include="Communication\CommunicationWidget.h">
+      <Filter>Communication</Filter>
+    </QtMoc>
+    <QtMoc Include="Communication\SerialPort\SerialPortIODevice.h">
+      <Filter>Communication\SerialPort</Filter>
+    </QtMoc>
+    <QtMoc Include="Communication\SerialPort\SerialPortWidget.h">
+      <Filter>Communication\SerialPort</Filter>
+    </QtMoc>
+    <QtMoc Include="Communication\SerialPort\SPIODevice.h">
+      <Filter>Communication\SerialPort</Filter>
+    </QtMoc>
+    <QtMoc Include="Communication\TcpServer\TcpServerIODevice.h">
+      <Filter>Communication\TcpServer</Filter>
+    </QtMoc>
+    <QtMoc Include="Communication\TcpServer\TcpServerWidget.h">
+      <Filter>Communication\TcpServer</Filter>
+    </QtMoc>
+    <QtMoc Include="Communication\TcpServer\TcpIODevice.h">
+      <Filter>Communication\TcpServer</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CV_TEAM.rc" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,71 @@
+QGroupBox#ExtendedGroupBox::indicator 
+{
+    width: 8px;
+    height: 8px;
+}
+
+QGroupBox#ExtendedGroupBox::indicator:unchecked 
+{
+    image: url(:/CV_TEAM/icons/right.png);
+}
+
+QGroupBox#ExtendedGroupBox::indicator:checked 
+{
+    image: url(:/CV_TEAM/icons/down.png);
+}
+
+
+
+
+
+
+
+
+QCheckBox{
+    spacing: 2px;
+    color: black;
+}
+QCheckBox::indicator {
+    width: 45px;
+    height: 30px;
+}
+QCheckBox::indicator:unchecked {
+    image: url(:/CV_TEAM/icons/switch_on.png);
+}
+QCheckBox::indicator:unchecked:hover {
+    image: url(:/CV_TEAM/icons/switch_on.png);
+}
+QCheckBox::indicator:unchecked:pressed {
+    image: url(:/CV_TEAM/icons/switch_on.png);
+}
+QCheckBox::indicator:checked {
+    image: url(:/CV_TEAM/icons/switch_off.png);
+}
+QCheckBox::indicator:checked:hover {
+    image: url(:/CV_TEAM/icons/switch_off.png);
+}
+QCheckBox::indicator:checked:pressed {
+    image: url(:/CV_TEAM/icons/switch_off.png);
+}
+
+QSlider::handle:horizontal {                               
+     border: 0px ;                           
+     border-image:  url(:/CV_TEAM/icons/dot.png);
+     width: 15px;                                           
+     margin: -7px -7px -7px -7px;                  
+} 
+
+
+
+QTreeWidget::branch:closed:has-children:!has-siblings,
+
+QTreeWidget::branch:closed:has-children:has-siblings{image:url(:/CV_TEAM/icons/arrow_right.png);}
+
+QTreeWidget::branch:open:has-children:!has-siblings,
+
+QTreeWidget::branch:open:has-children:has-siblings{image:url(:/CV_TEAM/icons/arrow_down2.png);}
+
+
+
+
+
