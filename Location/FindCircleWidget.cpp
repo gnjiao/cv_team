@@ -943,7 +943,7 @@ void FindCircleWidget::initItem()
 	m_ResultCircleItem->setVisible(false);
 
 	TextItem *textItem = new TextItem(0, 0);
-	textItem->setText("this is test for text item 9867450863%*%*^%$^%&(*(*_)(+");
+	textItem->setText("this is tes");
 	textItem->setSize(24);
 	fr_view->getScene()->addItem(textItem);
 	textItem->setVisible(true);

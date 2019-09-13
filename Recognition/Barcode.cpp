@@ -6,8 +6,6 @@ Barcode::~Barcode()
 {
 }
 
-
-
 //½âÎö¶şÎ¬Âë
 int Barcode::ZbarDecoder(cv::Mat img, string &type, string &result)
 {
