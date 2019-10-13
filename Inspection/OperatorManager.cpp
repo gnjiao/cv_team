@@ -37,6 +37,10 @@ BaseOperator * OperatorManager::createOperator(string nodeName)
 	{
 		newOperator = new ThresholdOperator();
 	}
+	else if (nodeName == "Barcode")
+	{
+		newOperator = new BarcodeOperator();
+	}
 
 	return newOperator;
 }

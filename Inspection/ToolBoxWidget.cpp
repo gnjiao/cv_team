@@ -232,6 +232,26 @@ ToolBoxWidget::ToolBoxWidget(QWidget *parent)
 
 	m_root_measurement->addChild(child);
 
+
+
+	m_root_recognition = new QTreeWidgetItem(this);
+
+	m_root_recognition->setFont(0, ft);
+
+	m_root_recognition->setText(0, tr("recognition"));
+
+	//m_root_pretreatment->setIcon(0, QIcon(":/CV_TEAM/icons/pretreatment.png"));
+
+	this->addTopLevelItem(m_root_recognition);
+
+	child = new QTreeWidgetItem(m_root_recognition);
+
+	child->setText(0, QString("Barcode"));
+
+	child->setIcon(0, QIcon(":/CV_TEAM/icons/code.png"));
+
+	m_root_recognition->addChild(child);
+
 	this->setStyleSheet(
 
 		"QTreeWidget::item{ height:40px;}"

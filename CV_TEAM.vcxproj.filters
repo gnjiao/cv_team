@@ -312,6 +312,18 @@
     <ClCompile Include="GraphicsItem\TextItem.cpp">
       <Filter>GraphicsItem</Filter>
     </ClCompile>
+    <ClCompile Include="GraphicsItem\FindArcItem.cpp">
+      <Filter>GraphicsItem</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\BarcodePosition.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\BarcodePositionWidget.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Location\BarcodePositionOperator.cpp">
+      <Filter>Location</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Geo\Circle2D.h">
@@ -488,11 +500,20 @@
     <ClInclude Include="Recognition\BarcodeOperator.h">
       <Filter>Recognetion</Filter>
     </ClInclude>
-    <ClInclude Include="Recognition\BarcodeWidget.h">
-      <Filter>Recognetion</Filter>
-    </ClInclude>
     <ClInclude Include="GraphicsItem\TextItem.h">
       <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsItem\FindArcItem.h">
+      <Filter>GraphicsItem</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\BarcodePosition.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\BarcodePositionWidget.h">
+      <Filter>Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Location\BarcodePositionOperator.h">
+      <Filter>Location</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -609,6 +630,9 @@
     </QtMoc>
     <QtMoc Include="Communication\TcpServer\TcpIODevice.h">
       <Filter>Communication\TcpServer</Filter>
+    </QtMoc>
+    <QtMoc Include="Recognition\BarcodeWidget.h">
+      <Filter>Recognetion</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

@@ -21,6 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
     <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -47,21 +48,25 @@
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IncludePath>.\Library_x64\ZbarLib_x64\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
     <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IntDir>..\$(Platform)_output\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IncludePath>.\Library_x86\ZbarLib_x86\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
     <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IntDir>..\x86_output\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IncludePath>.\Library_x64\ZbarLib_x64\include;.\AuxiliaryFile\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
     <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IntDir>..\$(Platform)_output\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IncludePath>.\Library_x86\ZbarLib_x86\include;.\AuxiliaryFile\include;E:\cv_team\boost_1_69_0;$(IncludePath)</IncludePath>
     <LibraryPath>E:\cv_team\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IntDir>..\x86_output\$(Configuration)\</IntDir>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
@@ -147,6 +152,9 @@
       <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
       <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
     </QtRcc>
+    <PostBuildEvent>
+      <Command>editbin /SUBSYSTEM:CONSOLE $(OUTDIR)\$(projectName).exe</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -240,6 +248,7 @@
     <ClCompile Include="DataModel\ToolDataMap.cpp" />
     <ClCompile Include="GraphicsItem\CircleSetItem.cpp" />
     <ClCompile Include="GraphicsItem\EraserItem.cpp" />
+    <ClCompile Include="GraphicsItem\FindArcItem.cpp" />
     <ClCompile Include="GraphicsItem\FindCircleItem.cpp" />
     <ClCompile Include="GraphicsItem\findLineItem.cpp" />
     <ClCompile Include="GraphicsItem\FrontSightItem.cpp" />
@@ -267,6 +276,9 @@
     <ClCompile Include="Inspection\ToolBlockManager.cpp" />
     <ClCompile Include="Inspection\ToolBlockWidget.cpp" />
     <ClCompile Include="Inspection\ToolBoxWidget.cpp" />
+    <ClCompile Include="Location\BarcodePosition.cpp" />
+    <ClCompile Include="Location\BarcodePositionOperator.cpp" />
+    <ClCompile Include="Location\BarcodePositionWidget.cpp" />
     <ClCompile Include="Location\Blob.cpp" />
     <ClCompile Include="Location\BlobOperator.cpp" />
     <ClCompile Include="Location\BlobWidget.cpp" />
@@ -384,7 +396,11 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
     </QtMoc>
+    <ClInclude Include="GraphicsItem\FindArcItem.h" />
     <ClInclude Include="GraphicsItem\TextItem.h" />
+    <ClInclude Include="Location\BarcodePosition.h" />
+    <ClInclude Include="Location\BarcodePositionOperator.h" />
+    <ClInclude Include="Location\BarcodePositionWidget.h" />
     <ClInclude Include="LTwindow\LT.h" />
     <QtMoc Include="LTwindow\LTbar.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest</IncludePath>
@@ -415,7 +431,12 @@
     <ClInclude Include="LTwindow\LT_p.h" />
     <ClInclude Include="Recognition\Barcode.h" />
     <ClInclude Include="Recognition\BarcodeOperator.h" />
-    <ClInclude Include="Recognition\BarcodeWidget.h" />
+    <QtMoc Include="Recognition\BarcodeWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\AuxiliaryFile\include;E:\cv_team\eigen;E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\cv_team\opencv\build\include\opencv2;E:\cv_team\opencv\build\include\opencv;E:\cv_team\opencv\build\include;E:\cv_team\eigen;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
     <ClInclude Include="resource.h" />
     <QtMoc Include="Task\TaskDockWidget.h" />
     <QtMoc Include="Task\RTStatusWidget.h" />

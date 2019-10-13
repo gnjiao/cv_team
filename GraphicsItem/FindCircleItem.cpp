@@ -111,11 +111,10 @@ void FindCircleItem::mousePressEvent(QGraphicsSceneMouseEvent * event)
 	{
 		isResizing = 1;
 	}
-	else
-		if (2 == isInResizeArea(event->pos()))
-		{
-			isResizing = 2;
-		}
+	else if (2 == isInResizeArea(event->pos()))	
+	{
+		isResizing = 2;
+	}
 	QGraphicsItem::mousePressEvent(event);
 }
 

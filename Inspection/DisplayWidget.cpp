@@ -121,15 +121,6 @@ void DisplayWidget::showAllOutputItems()
 					QColor color=QColor(var->GetColorR(),var->GetColorG(),var->GetColorB());
 					circleItem->setColor(color);
 					m_showItems.append(circleItem);
-					//double radius = var->GetValue().Radius();
-					//std::stringstream s1;
-					//s1 << radius;
-					//std::stringstream s2;
-					//s2 << circle_index;
-					////cv::circle(src, cv::Point2d(center_x, center_y), radius, Scalar(0, 255, 0));
-					//cv::putText(output, "R" + s2.str() + "=" + s1.str(), Point2d(15, 25 + 25 * index), cv::FONT_HERSHEY_COMPLEX, 0.5, Scalar(0, 255, 0), 1);
-					//index++;
-					//circle_index++;
 				}
 			}
 			for each (auto var in shell->output()->vectorLine)//??
@@ -143,15 +134,6 @@ void DisplayWidget::showAllOutputItems()
 					QColor color = QColor(var->GetColorR(), var->GetColorG(), var->GetColorB());
 					lineItem->setColor(color);
 					m_showItems.append(lineItem);
-					//double length = var->GetValue().Length();
-					//std::stringstream s1;
-					//s1 << length;
-					//std::stringstream s2;
-					//s2 << line_index;
-					////cv::line(src, cv::Point2d(start_point_x, start_point_y), cv::Point2d(end_point_x, end_point_y), Scalar(0, 255, 0));
-					//cv::putText(output, "L" + s2.str() + "=" + s1.str(), Point2d(15, 25 + 25 * index), cv::FONT_HERSHEY_COMPLEX, 0.5, Scalar(0, 255, 0), 1);
-					//index++;
-					//line_index++;
 				}
 			}
 			for each (auto var in shell->output()->vectorPoint)
@@ -165,14 +147,6 @@ void DisplayWidget::showAllOutputItems()
 					QColor color = QColor(var->GetColorR(), var->GetColorG(), var->GetColorB());
 					pointItem->setColor(color);
 					m_showItems.append(pointItem);
-					//double point_x = var->GetValue().X();
-					//double point_y = var->GetValue().Y();
-					//std::stringstream s1;
-					//s1 << point_x;
-					//std::stringstream s2;
-					//s2 << point_y;
-					//cv::putText(output, s1.str() + " " + s2.str(), Point2d(15, 25 + 25 * index), cv::FONT_HERSHEY_COMPLEX, 0.5, Scalar(0, 255, 0), 1);
-					//index++;
 				}
 			}
 			for each (auto var in shell->output()->vectorRegion)
@@ -187,6 +161,18 @@ void DisplayWidget::showAllOutputItems()
 				else
 				{
 					return;
+				}
+			}
+			for each (auto var in shell->output()->vectorString)
+			{
+				if (!var->GetDisplayChecked())
+				{
+					TextItem* textItem = new TextItem(0,0,18,var->GetValue());
+					textItem->setFlag(QGraphicsItem::ItemIsMovable, false);
+					textItem->setFlag(QGraphicsItem::ItemIsSelectable, false);
+					QColor color = QColor(var->GetColorR(), var->GetColorG(), var->GetColorB());
+					textItem->setColor(color);
+					m_showItems.append(textItem);
 				}
 			}
 		}

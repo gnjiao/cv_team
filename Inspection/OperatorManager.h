@@ -8,7 +8,7 @@
 #include "PreTreatment\MorphologyOperator.h"
 #include "PreTreatment\SmoothOperator.h"
 #include "PreTreatment\ThresholdOperator.h"
-
+#include "Recognition\BarcodeOperator.h"
 #define OperatorMGR OperatorManager::Instance()
 using namespace std;
 using namespace toolModel;

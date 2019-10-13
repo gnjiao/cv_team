@@ -6,6 +6,7 @@
 #include "GraphicsItem\PointSetItem.h"
 #include "GraphicsItem\LineSetItem.h"
 #include "GraphicsItem\CircleSetItem.h"
+#include "GraphicsItem\TextItem.h"
 #include <map>
 #include <QMouseEvent>
 #include <string>

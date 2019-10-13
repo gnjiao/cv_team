@@ -219,7 +219,12 @@ QDialog * ToolBlockWidget::creatOperatorWidget(BaseNode *toolBase)
 		OperatorWidget->hide();
 		return OperatorWidget;
 	}
-
+	if (toolBase->GetNodeName() == "Barcode")
+	{
+		BarcodeWidget* OperatorWidget = new BarcodeWidget();
+		OperatorWidget->hide();
+		return OperatorWidget;
+	}
 
 	return nullptr;
 }

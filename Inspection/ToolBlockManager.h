@@ -8,6 +8,7 @@
 #include "PreTreatment\MorphologyWidget.h"
 #include "PreTreatment\SmoothWidget.h"
 #include "PreTreatment\ThresholdWidget.h"
+#include "Recognition\BarcodeWidget.h"
 #include "ToolBlock.h"
 #define ToolBlockMGR ToolBlockManager::Instance()
 class ToolBlockManager

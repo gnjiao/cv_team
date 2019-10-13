@@ -97,6 +97,8 @@
         <file>icons/LOGO.png</file>
         <file>icons/logo.jpg</file>
         <file>icons/text.png</file>
+        <file>icons/resize_vertical.png</file>
+        <file>icons/code.png</file>
     </qresource>
     <qresource prefix="/StyleSheet">
         <file>stylesheets/style.qss</file>

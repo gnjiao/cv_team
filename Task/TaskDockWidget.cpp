@@ -75,6 +75,7 @@ void TaskDockWidget::on_itemDoubleClicked(QTreeWidgetItem *item)
 			(*itr)->setTitle(Title);
 			(*itr)->show();
 			(*itr)->showNormal();
+			(*itr)->activateWindow();
 			this->setWindowFlags(this->windowFlags() | Qt::WindowStaysOnTopHint);
 			return;
 		}

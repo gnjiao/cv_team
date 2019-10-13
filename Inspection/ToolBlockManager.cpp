@@ -12,6 +12,7 @@ BOOST_CLASS_EXPORT(EnhancementOperator)
 BOOST_CLASS_EXPORT(MorphologyOperator)
 BOOST_CLASS_EXPORT(SmoothOperator)
 BOOST_CLASS_EXPORT(ThresholdOperator)
+BOOST_CLASS_EXPORT(BarcodeOperator)
 //
 ToolBlockManager::ToolBlockManager()
 {
@@ -369,6 +370,32 @@ void ToolBlockManager::initOperator(int index, bool isWidgetShow, vector<QDialog
 		if (isWidgetShow)
 		{
 			ThresholdWidget* shellWidget = (ThresholdWidget*)(OpratorWidget->at(index));
+			shellWidget->setWindowTitle(title);
+			shellWidget->getImageComboBox()->setInputData(data)->loadItems()->selectItem(shell->input_mat);
+			shellWidget->setOperator(shell);
+			shellWidget->hide();
+			shellWidget->raise();
+			shellWidget->show();
+			return;
+		}
+	}
+
+	if (baseTool->GetNodeName() == "Barcode")
+	{
+		BarcodeOperator* shell = (BarcodeOperator*)baseTool;
+		InputData data;
+		data.append(loadOperators(index, ToolDataType::eMat));
+		if (shell->input_mat == nullptr)
+		{
+			shell->input_mat = data.getMat(0);
+		}
+		if (shell->input_refMat == nullptr)
+		{
+			shell->input_refMat = data.getRefMat(0);
+		}
+		if (isWidgetShow)
+		{
+			BarcodeWidget* shellWidget = (BarcodeWidget*)(OpratorWidget->at(index));
 			shellWidget->setWindowTitle(title);
 			shellWidget->getImageComboBox()->setInputData(data)->loadItems()->selectItem(shell->input_mat);
 			shellWidget->setOperator(shell);

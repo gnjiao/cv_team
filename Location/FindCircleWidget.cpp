@@ -568,7 +568,7 @@ void FindCircleWidget::makeSetItemWidget()
 	hlay->addWidget(StartPointX_le);
 	hlay->addWidget(StartPointY_le);
 	QHBoxLayout *hlay1 = new QHBoxLayout();
-	QLabel *end_point_lb = new QLabel("End Point:");
+	QLabel *end_point_lb = new QLabel("End   Point:");
 	EndPointX_le = new QLineEdit();
 	EndPointY_le = new QLineEdit();
 	hlay1->addWidget(end_point_lb);
@@ -798,7 +798,7 @@ void FindCircleWidget::makeOutputWidget()
 	hlay_start_y->addWidget(StartPointY_min_le);
 	hlay_start_y->addWidget(StartPointY_max_le);
 	QHBoxLayout *hlay_end_x = new QHBoxLayout();
-	EndPointX_cb = new QCheckBox("End Point X:");
+	EndPointX_cb = new QCheckBox("End   Point X:");
 	EndPointX_min_le = new QLineEdit();
 	EndPointX_max_le = new QLineEdit();
 	EndPointX_min_le->setDisabled(true);
@@ -807,7 +807,7 @@ void FindCircleWidget::makeOutputWidget()
 	hlay_end_x->addWidget(EndPointX_min_le);
 	hlay_end_x->addWidget(EndPointX_max_le);
 	QHBoxLayout *hlay_end_y = new QHBoxLayout();
-	EndPointY_cb = new QCheckBox("End Point Y:");
+	EndPointY_cb = new QCheckBox("End   Point Y:");
 	EndPointY_min_le = new QLineEdit();
 	EndPointY_max_le = new QLineEdit();
 	EndPointY_min_le->setDisabled(true);
@@ -947,6 +947,10 @@ void FindCircleWidget::initItem()
 	textItem->setSize(24);
 	fr_view->getScene()->addItem(textItem);
 	textItem->setVisible(true);
+
+	FindArcItem *arcItem = new FindArcItem(Point2D(100,100),Point2D(100,0),Point2D(0,100),true);
+	fr_view->getScene()->addItem(arcItem);
+	arcItem->setVisible(true);
 }
 void FindCircleWidget::syncOperator(FindCircleOperator * AA, FindCircleOperator * BB)
 {

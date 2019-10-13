@@ -6,6 +6,7 @@
 #include "GraphicsItem\PointSetItem.h"
 #include "GraphicsItem\CircleSetItem.h"
 #include "GraphicsItem\TextItem.h"
+#include "GraphicsItem\FindArcItem.h"
 #include <QGroupBox>
 #include <QSlider>
 #include <QSpinBox>

@@ -366,6 +366,18 @@ void InspectionDialog::showAllOutputItems()
 					return;
 				}
 			}
+			for each (auto var in shell->output()->vectorString)
+			{
+				if (!var->GetDisplayChecked())
+				{
+					TextItem* textItem = new TextItem(0, 0, 18, var->GetValue());
+					textItem->setFlag(QGraphicsItem::ItemIsMovable, false);
+					textItem->setFlag(QGraphicsItem::ItemIsSelectable, false);
+					QColor color = QColor(var->GetColorR(), var->GetColorG(), var->GetColorB());
+					textItem->setColor(color);
+					m_showItems.append(textItem);
+				}
+			}
 		}
 	}
 	for each (auto var in m_showItems)
