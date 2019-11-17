@@ -65,6 +65,7 @@ FileWidget::FileWidget(QWidget *parent)
 FileWidget::~FileWidget()
 {
 }
+
 void FileWidget::on_Next_btn_Clicked()
 {
 	this->Next_btn->setIcon(QIcon(":/CV_TEAM/icons/next_gray.png"));
@@ -107,13 +108,17 @@ void FileWidget::on_Start_btn_Clicked()
 		Start_btn->setIcon(QIcon(":/CV_TEAM/icons/fileStop.png"));
 		Start_btn->setToolTip("Stop");
 		isStart = false;
+		emit Start_btn_Clicked();
+		
 	}
 	else
 	{
 		Start_btn->setIcon(QIcon(":/CV_TEAM/icons/fileStart.png"));
 		Start_btn->setToolTip("Start");
 		isStart = true;
+		emit Stop_btn_Clicked();
 	}
+	
 }
 void FileWidget::on_Open_btn_Clicked()
 {

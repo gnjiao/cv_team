@@ -69,6 +69,7 @@ void TaskDockWidget::on_itemDoubleClicked(QTreeWidgetItem *item)
 		if ((*itr)->m_inspection == pinspection)
 		{
 			QString Title = QString::fromStdWString(L"¼ì²âÁ÷³Ì") + QString::number(pinspection->GetKey());
+			pinspection->GetAcquisition()->SetReferenceMat(pinspection->GetAcquisition()->LoadReferenceMat(pinspection->GetRefImageFileName()));
 			(*itr)->getFrameView()->setImage(pinspection->GetAcquisition()->GetCurrentMat());
 			(*itr)->updateTreeWidget();
 			(*itr)->setWindowTitle(Title);

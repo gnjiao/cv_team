@@ -18,7 +18,12 @@ class FileWidget : public QWidget
 public:
 	FileWidget(QWidget *parent = Q_NULLPTR);
 	~FileWidget();
-	private slots:
+	QString m_filePath;
+	QString m_currentPath;
+	QStringList m_allImageNameList;
+	QString m_directory;
+	int m_fileIndex = 0;
+public slots:
 	void on_Next_btn_Clicked();
 	void on_Last_btn_Clicked();
 	void on_Start_btn_Clicked();
@@ -30,11 +35,7 @@ private:
 	QPushButton *Start_btn;
 	QPushButton *Open_btn;
 	QLabel *m_filePath_lb;
-	QString m_filePath;
-	QString m_currentPath;
-	QStringList m_allImageNameList;
-	QString m_directory;
-	int m_fileIndex = 0;
+
 	bool isStart = true;
 signals:
 	void SelectFile(QString);

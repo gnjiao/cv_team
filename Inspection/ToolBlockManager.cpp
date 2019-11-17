@@ -445,6 +445,16 @@ void ToolBlockManager::initOperatorsOutput(ToolBlock * toolBlock)
 }
 void ToolBlockManager::initOperatorInput(ToolBlock * toolBlock)
 {
+	for each(auto var in toolBlock->Children())
+	{
+		if (var->GetNodeName() == "shapeMatch")
+		{
+			ShapeMatchOperator *opera = (ShapeMatchOperator*)var;
+			opera->loadTemplate();
+			opera->createTemplate();
+		}
+	}
+
 }
 void ToolBlockManager::initDisplayOperator(ToolBlock * toolBlock, BaseNode * displayShell)
 {

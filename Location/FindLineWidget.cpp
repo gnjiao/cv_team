@@ -55,9 +55,11 @@ void FindLineWidget::doCancel()
 }
 void FindLineWidget::doEdit(bool b)
 {
+	m_findLineItem->setVisible(b);
+	m_findLineItem->setZValue(100);
 	if (!b)
 	{
-		m_findLineItem->setFlags(0);
+		
 	}
 	else
 	{

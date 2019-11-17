@@ -35,12 +35,12 @@ void ShapeMatchOperator::registerOutput()
 	output()->Add(output_best_rotation, ToolDataType::eAngle);
 	output()->Add(output_best_score, ToolDataType::eDouble);
 	output()->Add(output_Feature_Points, ToolDataType::eFeaturePoints);
-	//output_best_affineTrans->SetShowText(TOOLBOXMGR->shapeMatch.map[TOOLBOXMGR->shapeMatch.affineTrans]);
-	//output_best_center->SetShowText(TOOLBOXMGR->shapeMatch.map[TOOLBOXMGR->shapeMatch.center]);
-	//output_best_translation->SetShowText(TOOLBOXMGR->shapeMatch.map[TOOLBOXMGR->shapeMatch.translation]);
-	//output_best_rotation->SetShowText(TOOLBOXMGR->shapeMatch.map[TOOLBOXMGR->shapeMatch.rotation]);
-	//output_best_score->SetShowText(TOOLBOXMGR->shapeMatch.map[TOOLBOXMGR->shapeMatch.score]);
-	//output_Feature_Points->SetShowText(TOOLBOXMGR->shapeMatch.map[TOOLBOXMGR->shapeMatch.featurepoints]);
+	output_best_affineTrans->SetShowText("shapeMatch-affineTrans");
+	output_best_center->SetShowText("shapeMatch-center");
+	output_best_translation->SetShowText("shapeMatch-translation");
+	output_best_rotation->SetShowText("shapeMatch-rotation");
+	output_best_score->SetShowText("shapeMatch-score");
+	output_Feature_Points->SetShowText("shapeMatch-featurepoints");
 }
 NodeState ShapeMatchOperator::execute()
 {
@@ -265,7 +265,8 @@ int ShapeMatchOperator::findTemplate(const cv::Mat src, vector<double>& matchSco
 }
 int ShapeMatchOperator::saveTemplate()
 {
-	_mkdir(this->nodeDirectory().c_str());
+	string path = this->nodeDirectory().c_str();
+	_mkdir(path.c_str());
 	cv::imwrite(this->getTemplateImageFileName(), m_createTemplateParam.srcMat);
 	std::ofstream ofs;
 	ofs.open(this->getTemplateFileName().c_str(), ofstream::out);
@@ -279,14 +280,32 @@ int ShapeMatchOperator::saveTemplate()
 }
 int ShapeMatchOperator::loadTemplate()
 {
-	std::ifstream ifs(this->getTemplateFileName());
+	string path = this->getTemplateFileName();
+	string::iterator it;
+	for (it = path.begin();it<path.end(); it++)
+	{
+		if (*it == '-')
+		{
+			path.erase(it);
+		}
+	}
+	std::ifstream ifs(path);
 	if (ifs)
 	{
 		boost::archive::text_iarchive ia(ifs);
 		ia >> m_createTemplateParam;
 	}
 	ifs.close();
-	m_createTemplateParam.srcMat = cv::imread(this->getTemplateImageFileName(), CV_8U);
+
+	path = this->getTemplateImageFileName();
+	for (it = path.begin();it<path.end(); it++)
+	{
+		if (*it == '-')
+		{
+			path.erase(it);
+		}
+	}
+	m_createTemplateParam.srcMat = cv::imread(path, CV_8U);
 	vector<cv::Point> featurePoints;
 	cv::Point center;
 	for each (auto var in m_createTemplateParam.featurePoints)

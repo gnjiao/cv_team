@@ -27,6 +27,7 @@ void AcquireImageWidget::doOpenFile(cv::Mat img)
 }
 void AcquireImageWidget::doEdit(bool b)
 {
+	action_openFile->setEnabled(b);
 	showImage();
 }
 void AcquireImageWidget::doEditSave()
@@ -63,7 +64,8 @@ void AcquireImageWidget::on_Register_btn_Clicked()
 		QMessageBox::warning(this, title, strInfo, QMessageBox::Ok, QMessageBox::NoButton);
 		return;
 	}
-	inspection->GetAcquisition()->SetReferenceMat(m_refMat);
+	inspection->GetAcquisition()->SetReferenceMat(m_Mat);
+	m_refMat = m_Mat;
 	inspection->GetAcquisition()->SaveReferenceMat(inspection->GetRefImageFileName());
 	this->doPlay();
 	m_operator->setCoreParams();
@@ -119,6 +121,7 @@ void AcquireImageWidget::makeBaseWidget()
 	vlay2->addWidget(resister_gb);
 	vlay2->addWidget(frontSightSetting_gb);
 	this->BaseParamWidget->setLayout(vlay2);
+	this->action_edit->setChecked(false);
 }
 void AcquireImageWidget::initWidget()
 {

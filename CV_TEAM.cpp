@@ -20,7 +20,8 @@ CV_TEAM::CV_TEAM(QWidget *parent)
 
 void CV_TEAM::makeMenu()
 {
-	MainAPP_mn = this->menuBar()->addMenu("Main");
+	MainAPP_mn = this->menuBar()->addMenu("Main(&M)");
+	MainAPP_mn->setShortcutEnabled(true);
 	Start_ac = new QAction("Start");
 	Stop_ac = new QAction("Stop");
 	Exit_ac = new QAction("Exit");
@@ -30,6 +31,9 @@ void CV_TEAM::makeMenu()
 	Start_ac->setIcon(QIcon(":/CV_TEAM/icons/start.png"));
 	Stop_ac->setIcon(QIcon(":/CV_TEAM/icons/stop.png"));
 	Exit_ac->setIcon(QIcon(":/CV_TEAM/icons/exit.png"));
+	Start_ac->setShortcut(QKeySequence(tr("Ctrl+S")));
+	Stop_ac->setShortcut(QKeySequence(tr("Ctrl+D")));
+	Exit_ac->setShortcut(QKeySequence(tr("Ctrl+E")));
 
 	Task_mn = this->menuBar()->addMenu("Task");
 	TaskConfig_ac = new QAction("Task Config");

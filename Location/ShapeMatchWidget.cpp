@@ -33,7 +33,41 @@ void ShapeMatchWidget::setRefImage(QImage Image)
 }
 void ShapeMatchWidget::setOperator(ShapeMatchOperator * opra)
 {
-	this->CalOperator = opra;
+	this->SaveOperator = opra;
+	syncOperator(SaveOperator, CalOperator);
+	CalOperator->setInspectionKey(opra->getInspectionKey());
+	CalOperator->loadTemplate();
+	if (CalOperator->m_createTemplateParam.isCreated)
+	{
+		CalOperator->createTemplate();
+	}
+	//ROI
+	//setRoiChecked(m_shell2->roiChecked);
+	//this->setROI(m_shell2->ROI);
+
+	//show create param
+	//this->Search_tool->s(CalOperator->m_createTemplateParam.roi);
+	this->MinThresh_sp->setValue(CalOperator->m_createTemplateParam.minThreshold);
+	this->MaxThresh_sp->setValue(CalOperator->m_createTemplateParam.maxThreshold);
+	m_featurePoints.clear();
+	for each (auto var in CalOperator->m_createTemplateParam.featurePoints)
+	{
+		m_featurePoints.push_back(cv::Point(var.X(), var.Y()));
+	}
+	//show find param
+	this->Greedness_sp->setValue(CalOperator->m_findTemplateParam.greediness);
+	this->SearchCount_sp->setValue(CalOperator->m_findTemplateParam.maxMatchNum);
+	this->MaxAngle_sp->setValue(CalOperator->m_findTemplateParam.maxAngle);
+	this->MinAngle_sp->setValue(CalOperator->m_findTemplateParam.minAngle);
+	this->MaxScale_sp->setValue(CalOperator->m_findTemplateParam.maxScale);
+	this->MinScale_sp->setValue(CalOperator->m_findTemplateParam.minScale);
+	this->MinScore_sp->setValue(CalOperator->m_findTemplateParam.minScore);
+	if (CalOperator->input_mat)
+	{
+		m_imgCurrent = CalOperator->input_mat->GetValue();
+		this->fr_view->setImage(m_imgCurrent);
+	}
+	updateOutput();
 }
 InputBox * ShapeMatchWidget::getImageComboBox()
 {
@@ -100,6 +134,7 @@ void ShapeMatchWidget::on_action_edit_triggered(bool checked)
 	this->Search_tool->setVisible(checked);
 	if (checked)
 	{
+		action_edit->setIcon(QIcon(":/CV_TEAM/icons/edit_red.png"));
 		if (CalOperator->input_refMat)
 		{
 			this->Search_tool->setVisible(true);
@@ -113,10 +148,11 @@ void ShapeMatchWidget::on_action_edit_triggered(bool checked)
 	}
 	else
 	{
+		action_edit->setIcon(QIcon(":/CV_TEAM/icons/edit_black.png"));
 		Search_tool->setVisible(false);
 		Eraser_cb->setChecked(false);
 		Eraser->QGraphicsItem::setVisible(false);
-		this->fr_view->setImage(m_imgCurrent);
+		this->fr_view->setImage(CalOperator->input_mat->GetValue());
 	}
 }
 void ShapeMatchWidget::on_action_edit_finish_triggered()
@@ -125,33 +161,35 @@ void ShapeMatchWidget::on_action_edit_finish_triggered()
 	int lowThresh = this->MinThresh_sp->value();
 	int highThresh = this->MaxThresh_sp->value();
 	cv::Mat refMat = m_imgCurrent;
-	//if (CalOperator->input_refMat->GetValue().channels() == 1)
-	//	cv::cvtColor(CalOperator->input_refMat->GetValue(), refMat, CV_GRAY2BGR);
-	//else
-	//	CalOperator->input_refMat->GetValue().copyTo(refMat);
+	if (CalOperator->input_refMat->GetValue().channels() == 1)
+		cv::cvtColor(CalOperator->input_refMat->GetValue(), refMat, CV_GRAY2BGR);
+	else
+		CalOperator->input_refMat->GetValue().copyTo(refMat);
 	CalOperator->createTemplate(refMat, this->Search_tool->getRect(), m_featurePoints, lowThresh, highThresh);
-	//syncShells(m_BB, m_shell);
-	//m_shell->createTemplate();
-	//m_shell->saveTemplate();
+	CalOperator->createTemplate();
+	
+	syncOperator(CalOperator, SaveOperator);
+	SaveOperator->saveTemplate();
+	SaveOperator->save();
 }
 void ShapeMatchWidget::on_action_findFeaturePoint_triggered()
 {
 	geo::Rect2D SearchTool = Search_tool->getRect();
-	//if (CalOperator->input_refMat == nullptr)
-	//	return;
-	//if (!CalOperator->input_refMat->GetValue().data)
-	//	return;
+	if (CalOperator->input_refMat == nullptr)
+		return;
+	if (!CalOperator->input_refMat->GetValue().data)
+		return;
 	int lowThresh = this->MinThresh_sp->value();
 	int highThresh = this->MaxThresh_sp->value();
-	cv::Mat refMat = m_imgCurrent;
-	//if (CalOperator->input_refMat->GetValue().channels() > 1)
-	//{
-	//	cv::cvtColor(CalOperator->input_refMat->GetValue(), refMat, CV_BGR2GRAY);
-	//}
-	//else
-	//{
-	//	CalOperator->input_refMat->GetValue().copyTo(refMat);
-	//}
+	cv::Mat refMat = CalOperator->input_refMat->GetValue();
+	if (CalOperator->input_refMat->GetValue().channels() > 1)
+	{
+		cv::cvtColor(CalOperator->input_refMat->GetValue(), refMat, CV_BGR2GRAY);
+	}
+	else
+	{
+		CalOperator->input_refMat->GetValue().copyTo(refMat);
+	}
 	if (0 != CalOperator->getFeaturePoints(refMat, SearchTool, lowThresh, highThresh, m_featurePoints))
 	{
 		return;
@@ -160,13 +198,12 @@ void ShapeMatchWidget::on_action_findFeaturePoint_triggered()
 	{
 		return;
 	}
-	//if (CalOperator->input_refMat->GetValue().channels() < 3)
-	//	cv::cvtColor(CalOperator->input_refMat->GetValue(), m_imgShow, CV_GRAY2BGR);
-	//else
-	//	CalOperator->input_refMat->GetValue().copyTo(m_imgShow);
-	m_imgCurrent.copyTo(m_imgShow);
-	DrawPointsOnPic(m_featurePoints, m_imgShow, m_color_creatTemplate);
-	this->fr_view->setImage(m_imgShow);
+	if (CalOperator->input_refMat->GetValue().channels() < 3)
+		cv::cvtColor(CalOperator->input_refMat->GetValue(), refMat, CV_GRAY2BGR);
+	else
+		CalOperator->input_refMat->GetValue().copyTo(refMat);
+	DrawPointsOnPic(m_featurePoints, refMat, m_color_creatTemplate);
+	this->fr_view->setImage(refMat);
 }
 void ShapeMatchWidget::on_image_cb_Changed(int index)
 {
@@ -334,10 +371,10 @@ void ShapeMatchWidget::makeToolBar()
 	action_play = new QAction(tr("Play"), this);
 	action_play->setIcon(QIcon(":/CV_TEAM/icons/play48.png"));
 	action_edit = new QAction(tr("Edit"), this);
-	action_edit->setIcon(QIcon(":/CV_TEAM/icons/edit48.png"));
+	action_edit->setIcon(QIcon(":/CV_TEAM/icons/edit_red.png"));
 	action_edit->setAutoRepeat(false);
 	action_edit->setCheckable(true);
-	action_edit->setChecked(false);
+	action_edit->setChecked(true);
 	action_edit->setEnabled(true);
 	action_edit_finish = new QAction(tr("Edit Finish"), this);
 	action_edit_finish->setIcon(QIcon(":/CV_TEAM/icons/Confirm.png"));
@@ -734,16 +771,16 @@ void ShapeMatchWidget::updateOutput()
 	{
 		var.featurePoints.clear();
 	}
-	//if (CalOperator->input_refMat == nullptr)
-	//{
-	//	botMsgBox->setText(tr("Refrence Image is NULL"));
-	//	return;
-	//}
-	//if (CalOperator->input_mat == nullptr)
-	//{
-	//	botMsgBox->setText("Input Image is NULL");
-	//	return;
-	//}
+	if (CalOperator->input_refMat == nullptr)
+	{
+		botMsgBox->setText(tr("Refrence Image is NULL"));
+		return;
+	}
+	if (CalOperator->input_mat == nullptr)
+	{
+		botMsgBox->setText("Input Image is NULL");
+		return;
+	}
 	cv::Mat src;
 	if (this->action_edit->isChecked())
 	{

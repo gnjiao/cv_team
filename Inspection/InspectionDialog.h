@@ -10,6 +10,8 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QRect>
+
+#include <mutex>
 #include "ToolBlockWidget.h"
 #include "ToolBoxWidget.h"
 #include "DataModel\FrameView.h"
@@ -46,11 +48,15 @@ private slots:
 	void on_Stop_btn_Clicked();
 
 	void on_DisplaySettingOK();
+	void on_excuteFinished_Triggered();
 private:
 	void makeToolBar();
 	void makeMainLayout();
 	void showAllOutputItems();
 	void updateResult();
+
+	void AutoRun();
+
 	QToolBar *toolBar;
 	QAction *PlayImage_ac;
 	QAction *PlayCamera_ac;
@@ -66,6 +72,15 @@ private:
 	FrameView *fr_view;
 	QList<QGraphicsItem*> m_showItems;
 	FileWidget *m_fileWidget;
+
+	std::mutex mtx;
 	QRect location;
+	string m_path;
 	bool max;
+	bool runFlag = false;
+	bool ready = false;
+
+signals:
+	void excuteFinished();
+
 };

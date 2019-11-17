@@ -123,8 +123,8 @@ void InspectionDialog::on_SelectFile_Clicked(QString path_)
 }
 void InspectionDialog::on_Next_btn_Clicked(QString path_)
 {
-	string path = path_.toLocal8Bit().toStdString();
-	cv::Mat src = cv::imread(path.c_str());
+	m_path = path_.toLocal8Bit().toStdString();
+	cv::Mat src = cv::imread(m_path.c_str());
 	fr_view->setImage(src);
 	fr_view->adaptToWindow(true);
 	m_inspection->GetAcquisition()->SetCurrentMat(src);
@@ -134,8 +134,8 @@ void InspectionDialog::on_Next_btn_Clicked(QString path_)
 }
 void InspectionDialog::on_Last_btn_Clicked(QString path_)
 {
-	string path = path_.toLocal8Bit().toStdString();
-	cv::Mat src = cv::imread(path.c_str());
+	m_path = path_.toLocal8Bit().toStdString();
+	cv::Mat src = cv::imread(m_path.c_str());
 	fr_view->setImage(src);
 	fr_view->adaptToWindow(true);
 	m_inspection->GetAcquisition()->SetCurrentMat(src);
@@ -145,13 +145,25 @@ void InspectionDialog::on_Last_btn_Clicked(QString path_)
 }
 void InspectionDialog::on_Start_btn_Clicked()
 {
+	runFlag = true;
+	ready = true;
+	std::thread *autoThread = new std::thread(bind(&InspectionDialog::AutoRun, this));
 }
 void InspectionDialog::on_Stop_btn_Clicked()
 {
+	runFlag = false;
+	ready = false;
 }
 void InspectionDialog::on_DisplaySettingOK()
 {
 	showAllOutputItems();
+}
+void InspectionDialog::on_excuteFinished_Triggered()
+{
+	toolBlockWidget->updateTree();
+	updateResult();
+	m_fileWidget->on_Next_btn_Clicked();
+	ready = true;
 }
 void InspectionDialog::makeToolBar()
 {
@@ -256,6 +268,7 @@ void InspectionDialog::makeMainLayout()
 	connect(m_fileWidget, SIGNAL(Last_btn_Clicked(QString)), this, SLOT(on_Last_btn_Clicked(QString)));
 	connect(m_fileWidget, SIGNAL(Start_btn_Clicked()), this, SLOT(on_Start_btn_Clicked()));
 	connect(m_fileWidget, SIGNAL(Stop_btn_Clicked()), this, SLOT(on_Stop_btn_Clicked()));
+	connect(this, SIGNAL(excuteFinished()), this, SLOT(on_excuteFinished_Triggered()));
 }
 void InspectionDialog::showAllOutputItems()
 {
@@ -418,4 +431,22 @@ void InspectionDialog::updateResult()
 		this->toolBlockWidget->currentItem()->setText(1, QString::number(shell->getDuration()) + " ms");
 	}
 	showAllOutputItems();
+}
+
+void InspectionDialog::AutoRun()
+{
+	while (runFlag)
+	{
+		if (ready)
+		{
+			std::lock_guard<std::mutex> mtx_locker(mtx);
+			m_inspection->execute();
+			emit excuteFinished();
+			Sleep(500);
+			ready = false;
+		}
+		Sleep(100);
+	}
+
+
 }
