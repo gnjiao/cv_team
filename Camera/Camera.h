@@ -5,8 +5,7 @@
 #include <string>
 #include "CameraImp.h"
 #include "CameraFactory.h"
-#include "EntityBase.h"
-#include "EntityManager.h"
+#include "Inspection\EntityManager.h"
 using namespace std;
 #define CameraManager EntityManager<Camera>::Instance()
 //#define CameraManager Camera::Instance()

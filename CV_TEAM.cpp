@@ -81,12 +81,16 @@ void CV_TEAM::makeMenu()
 	Setting_mn = this->menuBar()->addMenu("Setting");
 
 	About_mn = this->menuBar()->addMenu("About");
+	Help_ac = new QAction("Help");
+	Help_ac->setIcon(QIcon(":/CV_TEAM/icons/liscence.png"));
+
 	Liscence_ac = new QAction("Liscence");
 	AboutCVTeam_ac = new QAction("About CV Team");
 	Liscence_ac->setIcon(QIcon(":/CV_TEAM/icons/liscence.png"));
 	AboutCVTeam_ac->setIcon(QIcon(":/CV_TEAM/icons/about.png"));
 
 	Get_ac = new QAction("Get");
+	About_mn->addAction(Help_ac);
 	About_mn->addAction(Liscence_ac);
 	About_mn->addAction(AboutCVTeam_ac);
 	About_mn->addAction(Get_ac);
@@ -97,6 +101,13 @@ void CV_TEAM::makeMenu()
 
 	connect(Exit_ac, SIGNAL(triggered()), this, SLOT(on_action_Exit_triggered()));
 	connect(OpenCam_ac, SIGNAL(triggered()), this, SLOT(on_action_CameraSetting_triggered()));
+	connect(Help_ac, SIGNAL(triggered()), this, SLOT(on_action_Help_triggerd()));
+	connect(Liscence_ac, SIGNAL(triggered()), this, SLOT(on_action_Liscence_triggerd()));
+	connect(AboutCVTeam_ac, SIGNAL(triggered()), this, SLOT(on_action_AboutCVTeam_triggerd()));
+	connect(Get_ac, SIGNAL(triggered()), this, SLOT(on_action_Get_triggerd()));
+	//connect(Help_ac, SIGNAL(triggered()), this, SLOT(on_action_Help_triggerd()));
+
+
 }
 
 void CV_TEAM::makeCenturalWidget()
@@ -132,6 +143,9 @@ void CV_TEAM::makeDockWidget()
 	m_RTStatusWidget = new RTStatusWidget();
 	this->addDockWidget(Qt::RightDockWidgetArea, m_RTStatusWidget);
 	resizeDocks({ m_RTStatusWidget }, { 200 }, Qt::Horizontal);
+
+	View_mn->addAction(m_TaskDockwidget->toggleViewAction());
+	View_mn->addAction(m_RTStatusWidget->toggleViewAction());
 }
 
 void CV_TEAM::makeLogWidget()
@@ -145,6 +159,20 @@ void CV_TEAM::on_action_CameraSetting_triggered()
 
 	CommunicationWidget*ww = new CommunicationWidget();
 	ww->show();
+}
+
+void CV_TEAM::on_action_Help_triggerd()
+{
+	QString strDoc = "./cv_team.chm";
+	QDesktopServices::openUrl(QUrl::fromLocalFile(strDoc));
+}
+
+void CV_TEAM::on_action_AboutCVTeam_triggerd()
+{
+}
+
+void CV_TEAM::on_action_Get_triggerd()
+{
 }
 
 void CV_TEAM::on_action_Exit_triggered()

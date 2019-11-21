@@ -171,6 +171,7 @@ void ShapeMatchWidget::on_action_edit_finish_triggered()
 	syncOperator(CalOperator, SaveOperator);
 	SaveOperator->saveTemplate();
 	SaveOperator->save();
+	botMsgBox->setText("Template Saved!");
 }
 void ShapeMatchWidget::on_action_findFeaturePoint_triggered()
 {
@@ -192,10 +193,12 @@ void ShapeMatchWidget::on_action_findFeaturePoint_triggered()
 	}
 	if (0 != CalOperator->getFeaturePoints(refMat, SearchTool, lowThresh, highThresh, m_featurePoints))
 	{
+		botMsgBox->setText("Search Feature Points Fail!");
 		return;
 	}
 	if (!m_featurePoints.size())
 	{
+		botMsgBox->setText("Feature Points Empty!");
 		return;
 	}
 	if (CalOperator->input_refMat->GetValue().channels() < 3)
@@ -203,6 +206,7 @@ void ShapeMatchWidget::on_action_findFeaturePoint_triggered()
 	else
 		CalOperator->input_refMat->GetValue().copyTo(refMat);
 	DrawPointsOnPic(m_featurePoints, refMat, m_color_creatTemplate);
+	this->botMsgBox->setText("Search Feature Points Success!");
 	this->fr_view->setImage(refMat);
 }
 void ShapeMatchWidget::on_image_cb_Changed(int index)
@@ -352,6 +356,17 @@ void ShapeMatchWidget::on_Eraser_getcolor(QColor color)
 {
 	this->Eraser->setColor(color);
 }
+void ShapeMatchWidget::on_OK_btn_Clicked(bool b)
+{
+	syncOperator(CalOperator, SaveOperator);
+	SaveOperator->save();
+	SaveOperator->saveTemplate();
+	this->close();
+}
+void ShapeMatchWidget::on_Cancel_btn_Clicked(bool b)
+{
+	this->close();
+}
 void ShapeMatchWidget::doOpenFile(cv::Mat src)
 {
 }
@@ -452,16 +467,16 @@ void ShapeMatchWidget::makeLayout()
 	QPalette pa;
 	pa.setColor(QPalette::WindowText, Qt::blue);
 	botMsgBox->setPalette(pa);
-	botMsgBox->setText("this is test for label font");
-	btn_cancel = new QPushButton("Cancel");
-	btn_cancel->setMaximumWidth(90);
-	btn_OK = new QPushButton("OK");
-	btn_OK->setMaximumWidth(90);
+	botMsgBox->setText("Welcome To Shape Match!");
+	Cancel_btn = new QPushButton("Cancel");
+	Cancel_btn->setMaximumWidth(90);
+	OK_btn = new QPushButton("OK");
+	OK_btn->setMaximumWidth(90);
 	QHBoxLayout *hlay1 = new QHBoxLayout();
 
 	hlay1->addWidget(botMsgBox);
-	hlay1->addWidget(btn_cancel);
-	hlay1->addWidget(btn_OK);
+	hlay1->addWidget(Cancel_btn);
+	hlay1->addWidget(OK_btn);
 	vlay1->addLayout(hlay1);
 	this->setLayout(vlay1);
 }
@@ -764,6 +779,9 @@ void ShapeMatchWidget::initWidget()
 	connect(ROI_btn, SIGNAL(clicked(bool)), this, SLOT(on_ROI_btn_Clicked(bool)));
 	connect(Eraser_cb, SIGNAL(clicked(bool)), this, SLOT(on_Eraser_cb_Clicked(bool)));
 	connect(Eraser_btn, SIGNAL(clicked(bool)), this, SLOT(on_Eraser_btn_Clicked(bool)));
+	connect(OK_btn, SIGNAL(clicked(bool)), this, SLOT(on_OK_btn_Clicked(bool)));
+	connect(Cancel_btn, SIGNAL(clicked(bool)), this, SLOT(on_Cancel_btn_Clicked(bool)));
+
 }
 void ShapeMatchWidget::updateOutput()
 {
@@ -797,11 +815,11 @@ void ShapeMatchWidget::updateOutput()
 	for (size_t i = 0; i < CalOperator->output_allResults.size(); i++)
 	{
 
-		botMsgBox->setText(tr("Search Success"));
+		botMsgBox->setText(tr("Search Success!"));
 		TemplateResult result = CalOperator->output_allResults.at(i);
 		if (!result.featurePoints.size())
 		{
-			botMsgBox->setText(tr("Search Fail"));
+			botMsgBox->setText(tr("Search Fail!"));
 			return;
 		}
 		TableWidget->setItem(i, 0, new QTableWidgetItem(QString::number(result.score)));

@@ -61,12 +61,18 @@ void FindCircleWidget::doEdit(bool b)
 	if (!b)
 	{
 		m_findCircleItem->setFlags(0);
+		m_trans = m_CalOperator->input_affineTrans->GetValue();
+		m_findCircleItem->setCircle(m_refCircle, m_trans);
 	}
 	else
 	{
 		m_findCircleItem->setFlags(QGraphicsItem::GraphicsItemFlag::ItemIsSelectable
 			| QGraphicsItem::GraphicsItemFlag::ItemIsMovable);
+		m_findCircleItem->setCircle(m_refCircle);
 	}
+	m_ResultCircleItem->setVisible(false);
+	m_OKPointsItem->setVisible(false);
+	m_NGPointsItem->setVisible(false);
 	showImage();
 }
 void FindCircleWidget::doEditSave()
@@ -99,6 +105,7 @@ void FindCircleWidget::setOperator(FindCircleOperator * Opra)
 		m_findCircleItem->setCircle(m_refCircle, m_trans);
 	}
 	//update output
+	doEdit(true);
 	updateOutput();
 	this->showImage();
 	this->fr_view->getScene()->update();
@@ -163,13 +170,14 @@ void FindCircleWidget::on_image_cb_Changed(int index)
 }
 void FindCircleWidget::on_trans_cb_Changed(int index)
 {
-	//if (m_SaveOperator == nullptr) return;
-	//m_CalOperator->input_affineTrans = this->trans_cb->getAffineTrans(index);
-	//if (m_CalOperator->input_affineTrans)
-	//{
-	// m_trans = m_CalOperator->input_affineTrans->GetValue();
-	//}
-	//m_findCircleItem->setAimArea(m_refRect, m_trans);
+	//m_refCircle = m_findCircleItem->getCircle();
+	if (m_SaveOperator == nullptr) return;
+	m_CalOperator->input_affineTrans = this->trans_cb->getAffineTrans(index);
+	if (m_CalOperator->input_affineTrans)
+	{
+		m_trans = m_CalOperator->input_affineTrans->GetValue();
+	}
+	m_findCircleItem->setCircle(m_refCircle, m_trans);
 }
 void FindCircleWidget::on_Cal_Treshold_sl_Changed(int value)
 {
@@ -568,7 +576,7 @@ void FindCircleWidget::makeSetItemWidget()
 	hlay->addWidget(StartPointX_le);
 	hlay->addWidget(StartPointY_le);
 	QHBoxLayout *hlay1 = new QHBoxLayout();
-	QLabel *end_point_lb = new QLabel("End   Point:");
+	QLabel *end_point_lb = new QLabel("End Point:");
 	EndPointX_le = new QLineEdit();
 	EndPointY_le = new QLineEdit();
 	hlay1->addWidget(end_point_lb);
@@ -798,7 +806,7 @@ void FindCircleWidget::makeOutputWidget()
 	hlay_start_y->addWidget(StartPointY_min_le);
 	hlay_start_y->addWidget(StartPointY_max_le);
 	QHBoxLayout *hlay_end_x = new QHBoxLayout();
-	EndPointX_cb = new QCheckBox("End   Point X:");
+	EndPointX_cb = new QCheckBox("End Point X:");
 	EndPointX_min_le = new QLineEdit();
 	EndPointX_max_le = new QLineEdit();
 	EndPointX_min_le->setDisabled(true);
@@ -807,7 +815,7 @@ void FindCircleWidget::makeOutputWidget()
 	hlay_end_x->addWidget(EndPointX_min_le);
 	hlay_end_x->addWidget(EndPointX_max_le);
 	QHBoxLayout *hlay_end_y = new QHBoxLayout();
-	EndPointY_cb = new QCheckBox("End   Point Y:");
+	EndPointY_cb = new QCheckBox("End Point Y:");
 	EndPointY_min_le = new QLineEdit();
 	EndPointY_max_le = new QLineEdit();
 	EndPointY_min_le->setDisabled(true);
@@ -887,7 +895,7 @@ void FindCircleWidget::initWidget()
 	image_cb->setDataType(ToolDataType::eMat);
 	trans_cb->setDataType(ToolDataType::eAffineTrans);
 	connect(image_cb, SIGNAL(currentIndexChanged(int)), this, SLOT(on_image_cb_Changed(int)));
-	connect(trans_cb, SIGNAL(currentIndexChanged(int)), this, SLOT(on_trans_cb_Changed(int)));
+	connect(trans_cb, SIGNAL(currentIndexChanged(int)), this, SLOT(on_trans_cb_Changed(int)), Qt::UniqueConnection);
 	connect(polar_cb, SIGNAL(currentIndexChanged(int)), this, SLOT(on_polar_cb_Changed(int)));
 	connect(resultType_cb, SIGNAL(currentIndexChanged(int)), this, SLOT(on_resultType_cb_Changed(int)));
 	connect(Cal_Treshold_sl, SIGNAL(valueChanged(int)), this, SLOT(on_Cal_Treshold_sl_Changed(int)));
@@ -941,14 +949,12 @@ void FindCircleWidget::initItem()
 	m_ResultCircleItem = new CircleSetItem();
 	fr_view->getScene()->addItem(m_ResultCircleItem);
 	m_ResultCircleItem->setVisible(false);
-
 	TextItem *textItem = new TextItem(0, 0);
 	textItem->setText("this is tes");
 	textItem->setSize(24);
 	fr_view->getScene()->addItem(textItem);
 	textItem->setVisible(true);
-
-	FindArcItem *arcItem = new FindArcItem(Point2D(100,100),Point2D(100,0),Point2D(0,100),true);
+	FindArcItem *arcItem = new FindArcItem(Point2D(100, 100), Point2D(100, 0), Point2D(0, 100), true);
 	fr_view->getScene()->addItem(arcItem);
 	arcItem->setVisible(true);
 }

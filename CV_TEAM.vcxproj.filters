@@ -542,12 +542,6 @@
     <ClInclude Include="Camera\HikCamera.h">
       <Filter>Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Camera\EntityBase.h">
-      <Filter>Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera\EntityManager.h">
-      <Filter>Camera</Filter>
-    </ClInclude>
     <ClInclude Include="Camera\CameraImp.h">
       <Filter>Camera</Filter>
     </ClInclude>

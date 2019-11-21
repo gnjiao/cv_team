@@ -8,6 +8,7 @@
 #include <QVBoxLayout>
 #include <QMenuBar>
 #include <QToolBar>
+#include <QDesktopServices>
 
 #include "Task\TaskDockWidget.h"
 #include "Task\RTStatusWidget.h"
@@ -59,6 +60,7 @@ private:
 	QMenu *Setting_mn;
 
 	QMenu *About_mn;
+	QAction *Help_ac;
 	QAction *Liscence_ac;
 	QAction *AboutCVTeam_ac;
 	QAction *Get_ac;
@@ -73,4 +75,7 @@ private:
 private slots:
 	void on_action_Exit_triggered();
 	void on_action_CameraSetting_triggered();
+	void on_action_Help_triggerd();
+	void on_action_AboutCVTeam_triggerd();
+	void on_action_Get_triggerd();
 };

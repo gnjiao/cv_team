@@ -120,7 +120,9 @@ private slots:
 
 	void on_Eraser_getcolor(QColor);
 
+	void on_OK_btn_Clicked(bool);
 
+	void on_Cancel_btn_Clicked(bool);
 
 protected:
 	void doOpenFile(cv::Mat src);
@@ -178,9 +180,9 @@ private:
 
 	QLabel *botMsgBox;
 
-	QPushButton *btn_OK;
+	QPushButton *OK_btn;
 
-	QPushButton *btn_cancel;
+	QPushButton *Cancel_btn;
 
 
 

@@ -55,17 +55,21 @@ void FindLineWidget::doCancel()
 }
 void FindLineWidget::doEdit(bool b)
 {
-	m_findLineItem->setVisible(b);
-	m_findLineItem->setZValue(100);
 	if (!b)
 	{
-		
+		m_findLineItem->setFlags(0);
+		m_trans = m_CalOperator->input_affineTrans->GetValue();
+		m_findLineItem->setAimArea(m_refRect, m_trans);
 	}
 	else
 	{
 		m_findLineItem->setFlags(QGraphicsItem::GraphicsItemFlag::ItemIsSelectable
 			| QGraphicsItem::GraphicsItemFlag::ItemIsMovable);
+		m_findLineItem->setAimArea(m_refRect);
 	}
+	m_ResultLineItem->setVisible(false);
+	m_OKPointsItem->setVisible(false);
+	m_NGPointsItem->setVisible(false);
 	showImage();
 }
 void FindLineWidget::doEditSave()
@@ -182,24 +186,25 @@ InputBox * FindLineWidget::getTransComboBox()
 }
 void FindLineWidget::on_image_cb_Changed(int index)
 {
-	if (m_CalOperator == nullptr) return;
-	if (m_CalOperator->input_mat == nullptr)
-	{
-		return;
-	}
-	m_CalOperator->input_mat = this->image_cb->getMat(index);
-	m_CalOperator->input_refMat = this->image_cb->getRefMat(index);
-	showImage();
+	//if (m_CalOperator == nullptr) return;
+	//if (m_CalOperator->input_mat == nullptr)
+	//{
+	// return;
+	//}
+	//m_CalOperator->input_mat = this->image_cb->getMat(index);
+	//m_CalOperator->input_refMat = this->image_cb->getRefMat(index);
+	//showImage();
 }
 void FindLineWidget::on_trans_cb_Changed(int index)
 {
-	//if (m_SaveOperator == nullptr) return;
-	//m_CalOperator->input_affineTrans = this->trans_cb->getAffineTrans(index);
-	//if (m_CalOperator->input_affineTrans)
-	//{
-	// m_trans = m_CalOperator->input_affineTrans->GetValue();
-	//}
-	//m_findLineItem->setAimArea(m_refRect, m_trans);
+	//m_refRect = m_findLineItem->get_AimRect();
+	if (m_SaveOperator == nullptr) return;
+	m_CalOperator->input_affineTrans = this->trans_cb->getAffineTrans(index);
+	if (m_CalOperator->input_affineTrans)
+	{
+		m_trans = m_CalOperator->input_affineTrans->GetValue();
+	}
+	m_findLineItem->setAimArea(m_refRect, m_trans);
 }
 void FindLineWidget::on_polar_cb_Changed(int index)
 {

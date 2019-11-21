@@ -1,3 +1,9 @@
-22 serialization::archive 17 0 0 1 0 0 0 0 2 1 0
+22 serialization::archive 17 0 0 4 0 0 0 0 2 1 0
 0 0 2 t0 11 Inspection0 -1 3 1 0
-1 -1 -1 100 0 -1 0 0 0 
+1 -1 -1 100 0 -1 0 0 0  1 2
+2 1 2 t1 11 Inspection1 -1 3
+3 -1 -1 100 0 -1 0 1 0  2 2
+4 2 2 t2 11 Inspection2 -1 3
+5 -1 -1 100 0 -1 0 2 0  3 2
+6 3 2 t3 11 Inspection3 -1 3
+7 -1 -1 100 0 -1 0 3 0 

@@ -368,8 +368,6 @@
     <ClInclude Include="Camera\CameraBase.h" />
     <ClInclude Include="Camera\CameraFactory.h" />
     <ClInclude Include="Camera\CameraImp.h" />
-    <ClInclude Include="Camera\EntityBase.h" />
-    <ClInclude Include="Camera\EntityManager.h" />
     <ClInclude Include="Camera\HikCamera.h" />
     <ClInclude Include="Communication\CustomTabWidget.h" />
     <QtMoc Include="Communication\SerialPort\SerialPortIODevice.h">
